@@ -1,3 +1,8 @@
+"""This script defines the `searchVideos` class,
+which is used to search for videos on YouTube and
+download the audio from the videos."""
+
+
 from pytube import Search
 from pytube import YouTube
 
@@ -11,7 +16,7 @@ class searchVideos:
         result = search.results[1]
         return result.video_id
 
-    def downloadVideo(self, url, outputPath=""):
+    def downloadSong(self, url, outputPath=""):
         yt = YouTube(url)
         try:
             yt.streams.get_audio_only().download(output_path=outputPath)
@@ -22,7 +27,6 @@ class searchVideos:
         yt = YouTube(url)
         title = yt.title
         return title
-    
 
 
 if __name__ == "__main__":
