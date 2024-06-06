@@ -8,8 +8,9 @@ driver = webdriver.Chrome(service=ChromeService(
 
 
 class Scraper:
-    def __init__(self, url) -> None:
+    def __init__(self, url, htmlClass) -> None:
         self.url = url
+        self.htmlClass = htmlClass 
 
     def getHTML(self):
         driver.get(self.url)
@@ -20,8 +21,7 @@ class Scraper:
 
     def getNames(self, html):
         soup = BeautifulSoup(html, "html.parser")
-        titles = soup.select(
-            "div.encore-text.encore-text-body-medium.encore-internal-color-text-base.btE2c3IKaOXZ4VNAb8WQ.standalone-ellipsis-one-line")
+        titles = soup.select(self.htmlClass)
         return titles
 
     def writeNames(self, titles):

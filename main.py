@@ -14,8 +14,9 @@ url = "https://open.spotify.com/playlist/07TLTn242y7Tn9xDE5rFrx"
 
 # Asks which directory you want to save your songs in
 output_path = filedialog.askdirectory()
+htmlClass = "div.encore-text.encore-text-body-medium.encore-internal-color-text-base.btE2c3IKaOXZ4VNAb8WQ.standalone-ellipsis-one-line"
 
-scraper = Scraper(url)
+scraper = Scraper(url,htmlClass)
 
 # Returns the html of the spotify playlist you provided url of
 html = scraper.getHTML()
